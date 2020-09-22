@@ -21,16 +21,16 @@ const FindYZButton = document.querySelector('.FindYZButton')
 FindYZButton.addEventListener('click', calculateYZ)
 
 function calculateYZ() {
-  const B = +prompt('Введите значение B:');
-  const M = +prompt('Введите значение M:');
-  const C = +prompt('Введите значение C:');
-  const L = +prompt('Введите значение L:');
-  const X1 = (B + Math.sqrt(B ** 2 - 4 * B * C));
-  const X2 = M * B / 2 * C;
-  const Y = (B * X1 - C ** 2 * X2) / 2;
-  const Z = (M * X2 ** 2 + L * X1) / B;
+  const B = +prompt('Введите значение B:'); // 1000
+  const M = +prompt('Введите значение M:'); // 50
+  const C = +prompt('Введите значение C:'); // 50
+  const L = +prompt('Введите значение L:'); // 50
+  const X1 = Math.floor(B + Math.sqrt(B ** 2 - 4 * B * C));
+  const X2 = Math.floor(M * B / 2 * C);
+  const Y = Math.floor((B * X1 - C ** 2 * X2) / 2);
+  const Z = Math.floor((M * X2 ** 2 + L * X1) / B);
   alert(`Y = ${Y}`);
-  alert(`B = ${Z}`)
+  alert(`Z = ${Z}`)
 }
 
 /* Задание 2.1:               |  Q    ,                      если            Q < -2;
