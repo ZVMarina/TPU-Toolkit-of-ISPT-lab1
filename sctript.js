@@ -91,9 +91,10 @@ function calculateZA() {
   const X1 = 1;
   const B = 0;
   let Z;
-  for (let F = 5; F > -3; F = F - 0.1) {
-    Z = (F + 1) * 3 - B ** 2 * (X1 + 2) ** 2
-    console.log(Z.toFixed(1))
+  for (let F = 5; F >= -3; F = F - 0.1) {
+    F = +F.toFixed(1);
+    Z = ((F + 1) * 3 - B ** 2 * (X1 + 2) ** 2).toFixed(1)
+    console.log(`Z = ${Z}`)
   }
 }
 
@@ -102,13 +103,37 @@ const CalculateZButtonB = document.querySelector('.CalculateZButtonB')
 CalculateZButtonB.addEventListener('click', calculateZB)
 
 function calculateZB() {
-  const X1 = -1;
+  const X1 = 1;
   let Z;
-  for (let F = 5; F > -3; F = F - 0.1) {
-    for (let B = 5; B > -3; B = B - 1) {
-      Z = (F + 1) * 3 - B ** 2 * (X1 + 2) ** 2
-      // console.log(Z.toFixed(1))
+  let B;
+  for (let i = 5; i >= -3; i = i - 1) {
+    B = i
+    console.log(`Для B = ${B} и X1 = ${X1}`)
+    for (let F = 5; F >= -3; F = F - 0.1) {
+      F = +F.toFixed(1);
+      Z = ((F + 1) * 3 - B ** 2 * (X1 + 2) ** 2).toFixed(1)
+      console.log(`Z = ${Z}`)
     }
-    console.log(Z.toFixed(1))
+  }
+}
+
+/* Задание 3.2: F = ( L - Z1 - M - Z2 ) / L * M ;
+                Z2 изменяется от 10 до 5 с шагом -1
+                M,L,Z1-произвольно
+*/
+
+const CalculateFButton = document.querySelector('.CalculateFButton')
+
+CalculateFButton.addEventListener('click', calculateF)
+
+function calculateF() {
+  const M = 1;
+  const L = 1;
+  const Z1 = 1;
+  let Z2 = 10;
+  while (Z2 >= 5) {
+    F = +(( L - Z1 - M - Z2 ) / L * M).toFixed(1)
+    console.log(F)
+    Z2 = Z2 - 1
   }
 }
