@@ -25,10 +25,10 @@ function calculateYZ() {
   const M = +prompt('Введите значение M:');
   const C = +prompt('Введите значение C:');
   const L = +prompt('Введите значение L:');
-  const X1 = (B + Math.sqrt(B**2 - 4*B*C));
-  const X2 = M*B/2*C;
-  const Y = (B*X1 - C**2*X2)/2;
-  const Z = (M*X2**2 + L*X1)/B;
+  const X1 = (B + Math.sqrt(B ** 2 - 4 * B * C));
+  const X2 = M * B / 2 * C;
+  const Y = (B * X1 - C ** 2 * X2) / 2;
+  const Z = (M * X2 ** 2 + L * X1) / B;
   alert(`Y = ${Y}`);
   alert(`B = ${Z}`)
 }
@@ -49,11 +49,11 @@ function defineR() {
   if (Q < -2) {
     R = Q
   } else if (Q >= -2 && Q <= 2) {
-    R = Q**2
+    R = Q ** 2
   } else if (Q > 2 && Q <= 5) {
-    R = Q**3
+    R = Q ** 3
   } else if (Q > 5) {
-    R = Q**4
+    R = Q ** 4
   }
   alert(`R = ${R}`)
 }
@@ -71,9 +71,44 @@ function findPoint() {
   const y2 = +prompt('Введите значение y1:');
   const x = +prompt('Введите значение x:');
   const y = +prompt('Введите значение y:');
-  if (x >= x1 && x <= x2 && y >= y1 && y<= y2) {
+  if (x >= x1 && x <= x2 && y >= y1 && y <= y2) {
     alert('Точка попадает в прямоугольник')
   } else {
     alert('Точка не попадает в прямоугольник')
+  }
+}
+
+/* Задание 3.1: Z = ( F + 1 ) * 3 - B^2 * ( X1 + 2 )^2 ;
+            a) F изменяется от 5 до -3 с шагом 0,1;  x1, B - произвольно
+            б) F изменяется от 5 до -3 с шагом 0,1; B изменяется от 5 до -3 с шагом -1; x1-произвольно
+*/
+
+const CalculateZButtonA = document.querySelector('.CalculateZButtonA')
+
+CalculateZButtonA.addEventListener('click', calculateZA)
+
+function calculateZA() {
+  const X1 = 1;
+  const B = 0;
+  let Z;
+  for (let F = 5; F > -3; F = F - 0.1) {
+    Z = (F + 1) * 3 - B ** 2 * (X1 + 2) ** 2
+    console.log(Z.toFixed(1))
+  }
+}
+
+const CalculateZButtonB = document.querySelector('.CalculateZButtonB')
+
+CalculateZButtonB.addEventListener('click', calculateZB)
+
+function calculateZB() {
+  const X1 = -1;
+  let Z;
+  for (let F = 5; F > -3; F = F - 0.1) {
+    for (let B = 5; B > -3; B = B - 1) {
+      Z = (F + 1) * 3 - B ** 2 * (X1 + 2) ** 2
+      // console.log(Z.toFixed(1))
+    }
+    console.log(Z.toFixed(1))
   }
 }
