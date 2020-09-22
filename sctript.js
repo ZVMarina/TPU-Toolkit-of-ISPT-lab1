@@ -132,7 +132,7 @@ function calculateF() {
   const Z1 = 1;
   let Z2 = 10;
   while (Z2 >= 5) {
-    F = +(( L - Z1 - M - Z2 ) / L * M).toFixed(1)
+    F = +((L - Z1 - M - Z2) / L * M).toFixed(1)
     console.log(F)
     Z2 = Z2 - 1
   }
